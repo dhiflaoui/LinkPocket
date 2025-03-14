@@ -1,4 +1,4 @@
-exports.handler = async (res, req) => {
+exports.notFound = (req, res) => {
   res.status(404);
-  res.send({ error: `Not Found ${req.originalUrl}` });
+  res.json({ error: `Not Found ${req.originalUrl}` });
 };

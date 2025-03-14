@@ -7,7 +7,7 @@ mongoose.Promise = global.Promise;
 const Schema = mongoose.Schema;
 const UserSchema = new Schema(
   {
-    _id: {
+    userId: {
       type: String,
       required: "Please provide a unique user id",
       unique: true,
