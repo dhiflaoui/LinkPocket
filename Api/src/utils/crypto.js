@@ -3,25 +3,28 @@ const crypto = require("crypto");
 const jwt = require("jsonwebtoken");
 require("dotenv/config");
 
-const salt = bcrypt.genSaltSync(12);
-
 // Generate a hash for a password
 exports.generateHash = (password) => {
-  return bcrypt.hashSync(password, salt);
+  return bcrypt.hashSync(password, 10);
 };
 
 // Generates a jwt token
 exports.generateToken = (user) => {
+  if (!user || !user.userId) {
+    throw new Error("Invalid user data for token generation");
+  }
+
   return jwt.sign(
     {
-      id: user._id,
+      userId: user.userId,
       email: user.email,
     },
     process.env.JWT_SECRET,
-    { expiresIn: 60 * 60 * 24 * 7 }
+    { expiresIn: "24h" }
   );
 };
+
 // Generates a random hash for email verification
 exports.generateRandomToken = () => {
-  return crypto.randomBytes(20).toString("hex");
+  return crypto.randomBytes(32).toString("hex");
 };
