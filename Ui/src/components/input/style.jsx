@@ -1,25 +1,26 @@
 import { styled } from "styled-components";
+
 export const Label = styled.label`
-  color: ${({ props }) => props.theme.colors.text};
+  color: ${({ theme }) => theme.colors.text};
   display: block;
-  font-size: ${({ props }) => props.theme.text.sm};
-  margin-bottom: ${({ props }) => props.theme.spacing.xs};
+  font-size: ${({ theme }) => theme.text.sm};
+  margin-bottom: ${({ theme }) => theme.spacing.xs};
 `;
 export const InputElement = styled.input`
   border: 1px solid
-    ${({ props }) =>
-      props.$hasError ? props.theme.colors.error : props.theme.color.border};
-  border-radius: ${({ props }) => props.theme.borderRadius}d
-  color: ${({ props }) => props.theme.colors.text};
-  font-size: ${({ props }) => props.theme.text.sm};
-  padding: ${({ props }) => props.theme.spacing.sm};
+    ${({ theme }) =>
+      theme.$hasError ? theme.colors.error : theme.colors.border};
+  border-radius: ${({ theme }) => theme.borderRadius}d
+  color: ${({ theme }) => theme.colors.text};
+  font-size: ${({ theme }) => theme.text.sm};
+  padding: ${({ theme }) => theme.spacing.sm};
   width: 100%;
   &:focus {
-     outline-color: ${({ props }) => props.theme.colors.primary};
+     outline-color: ${({ theme }) => theme.colors.primary};
   }
 `;
 export const Error = styled.label`
-  color: ${({ props }) => props.theme.colors.error};
-  font-size: ${({ props }) => props.theme.text.xs};
+  color: ${({ theme }) => theme.colors.error};
+  font-size: ${({ theme }) => theme.text.xs};
   margin-top: 4px;
 `;

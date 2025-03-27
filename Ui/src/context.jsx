@@ -1,8 +1,20 @@
 import React, { createContext, useReducer, useContext } from "react";
+import { actions } from "./constants/actions";
 
-const initialState = {};
+const initialState = {
+  user: {
+    details: null,
+    token: null,
+  },
+};
 const reducer = (state, action) => {
   switch (action.type) {
+    case actions.UPDATE_USER: {
+      return {
+        ...state,
+        user: action.payload,
+      };
+    }
     default:
       return state;
   }

@@ -2,8 +2,9 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./app.jsx";
 import { AppProvider } from "./context.jsx";
-import { THemeProvider } from "styled-components";
-import { browserRouter as Router } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
+import { BrowserRouter } from "react-router-dom";
+
 const theme = {
   colors: {
     bg: "#f8fafc",
@@ -42,11 +43,12 @@ const theme = {
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <THemeProvider theme={theme} />
-    <AppProvider>
-      <Router>
-        <App />
-      </Router>
-    </AppProvider>
+    <ThemeProvider theme={theme}>
+      <AppProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </AppProvider>
+    </ThemeProvider>
   </StrictMode>
 );

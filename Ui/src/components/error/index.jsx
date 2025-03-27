@@ -1,6 +1,6 @@
 import { Wrapper } from "./style";
 
-export const Card = ({
+export const Error = ({
   children,
   $maxWidth = false,
   $noPadding = false,
